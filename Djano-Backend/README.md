@@ -79,7 +79,7 @@ http http://127.0.0.1:8000/api/v1/productFeed/?page=3
 http http://127.0.0.1:8000/api/v1/productFeed/?page=3&page_size=15 
 
 ### Filters
-The API supports filtering, you can filter by the attributes of a productFeed like this
+
 Get 
 http://127.0.0.1:8000/api/v1/productFeed/?page=1&page_size=15&productName=&productSKU=&productPrice__gt=20&productPrice__lt=30&storeId=12345
 
