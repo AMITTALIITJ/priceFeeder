@@ -24,3 +24,12 @@ The application includes 3 functionality :
 
 Note: The application provides minimal flow to demonstrate the above use-case. 
 
+Enhancement planned in the App:
+1.) Refresh data in various component on some actions.
+2.) The above is minimal application which demonstrates the minimum use case.
+3.) Providing date filters.
+4.) Including country information from the backend or from the FE application.
+5.) Different views for store people(to upload and see their own specific data) and admin to see overall data.
+6.) Authentication mechanism to validate the user doing the upload.
+
+
