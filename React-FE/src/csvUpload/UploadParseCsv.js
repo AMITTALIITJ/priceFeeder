@@ -3,7 +3,7 @@ import { FormGroup, Label, Input } from "reactstrap";
 import axios from 'axios';
 import { useState } from "react";
 import './style.css';
-
+import { baseApiURL } from '../config/env.js';
 function UploadParseCsv(props) {
     //posting the csv file to api, for data parsing
 
@@ -57,7 +57,7 @@ function UploadParseCsv(props) {
     };
     axios({
       method: "post",
-      url: "http://127.0.0.1:8000/api/v1/productFeed/upload/",
+      url: `${baseApiURL}/api/v1/productFeed/upload/`,
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     })

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './App.css';
 import DatePicker from "react-datepicker";
 import DateObject from "react-date-object";
+import { baseApiURL } from '../config/env.js';
 const axios = require('axios');
 
 
@@ -83,7 +84,7 @@ function PriceFeedForm({parentToChild}) {
     
     axios({
           method: "put",
-          url: 'http://127.0.0.1:8000/api/v1/productFeed/'+parentToChild.itemId+'/',
+          url: `${baseApiURL}/api/v1/productFeed/${parentToChild.itemId}/`,
           data: data,
           headers: { "Content-Type": "multipart/form-data" },
         })
