@@ -16,6 +16,7 @@ function PriceFeedForm({parentToChild}) {
     const [itemId , setItemId] = useState('');
     const [saveStatus , setSaveStatus] = useState('');
     const [apiResponse , setApiResponse] = useState('0');
+    const [enableEdit , setEnableEdit] = useState(false);
     // 1- Success
     //   2- Error
     // 3- Not submitted form
@@ -31,6 +32,7 @@ function PriceFeedForm({parentToChild}) {
         setItemId(parentToChild.itemId)
         setSaveStatus("")
         setApiResponse("0")
+        setEnableEdit(false)
         var input = parentToChild.productSaleDate
        
         if(input !="")
@@ -47,6 +49,7 @@ function PriceFeedForm({parentToChild}) {
       setstoreId(e.target.value);
       setSaveStatus("")
       setApiResponse("0")
+      setEnableEdit(true)
     }
     // function to update state of age with value
     // enter by user in form
@@ -54,6 +57,7 @@ function PriceFeedForm({parentToChild}) {
       setProductName(e.target.value);
       setSaveStatus("")
       setApiResponse("0")
+      setEnableEdit(true)
     }
     // function to update state of email with value
     // enter by user in form
@@ -61,6 +65,7 @@ function PriceFeedForm({parentToChild}) {
       setSKU(e.target.value);
       setSaveStatus("")
       setApiResponse("0")
+      setEnableEdit(true)
     }
       // function to update state of password with
       // value enter by user in form
@@ -68,6 +73,7 @@ function PriceFeedForm({parentToChild}) {
       setPrice(e.target.value);
       setSaveStatus("")
       setApiResponse("0")
+      setEnableEdit(true)
     }
       // function to update state of confirm password
       // with value enter by user in form
@@ -84,7 +90,7 @@ function PriceFeedForm({parentToChild}) {
     
     axios({
           method: "put",
-          url: `${baseApiURL}/api/v1/productFeed/${parentToChild.itemId}/`,
+          url: `${baseApiURL}api/v1/productFeed/${parentToChild.itemId}/`,
           data: data,
           headers: { "Content-Type": "multipart/form-data" },
         })
@@ -92,13 +98,14 @@ function PriceFeedForm({parentToChild}) {
             
             setApiResponse("1")
             setSaveStatus("Data Successfully Updated.")
+            setEnableEdit(false)
             
           })
           .catch(function (response) {
             //handle error
             setApiResponse("1")
             setSaveStatus("Error")
-            
+            setEnableEdit(false)
           });
 
                
@@ -112,6 +119,7 @@ function PriceFeedForm({parentToChild}) {
     setDate(e.target.value);
     setSaveStatus("")
     setApiResponse("0")
+    setEnableEdit(true)
   }
   
   const openDatePicker=(e)=> {
@@ -123,7 +131,7 @@ function PriceFeedForm({parentToChild}) {
     <div className="App">
     <header className="App-header">
     <h3> Edit Form </h3>
-    {parentToChild.storeId}
+    
         <label class="marginAboveInput">
           Store Id:
         </label><br/>
@@ -160,14 +168,14 @@ function PriceFeedForm({parentToChild}) {
               function will be called. */}
       <DatePicker
           selected={date}
-          onChange={(date) => { console.log("ttttttttttttttt"); console.log(date); setDate(date);  setSaveStatus(""); setApiResponse("0"); }}
+          onChange={(date) => { console.log("ttttttttttttttt"); console.log(date); setDate(date);  setSaveStatus(""); setApiResponse("0");  setEnableEdit(true)}}
           onClickOutside={(e)=> {openDatePicker(e)}}
           dateFormat="dd-MM-yyyy" 
          
           class="marginAboveInput"
         />
         
-        <button onClick={() => handleSubmitNew()}>
+        <button onClick={() => handleSubmitNew()} disabled={!enableEdit}>
         Edit
       </button>
       {apiResponse== "1" ? saveStatus:""}

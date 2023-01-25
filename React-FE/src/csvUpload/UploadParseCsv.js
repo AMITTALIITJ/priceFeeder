@@ -57,7 +57,7 @@ function UploadParseCsv(props) {
     };
     axios({
       method: "post",
-      url: `${baseApiURL}/api/v1/productFeed/upload/`,
+      url: `${baseApiURL}api/v1/productFeed/upload/`,
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     })
@@ -84,7 +84,11 @@ function UploadParseCsv(props) {
           id="exampleFile" 
           onChange={(e) => fileHandler(e)}/>
           <button onClick={handleParse}>Upload</button>
+          <span >
+                {error ? error : success}
+            </span>
         </FormGroup>
+        
         <div
         style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}
       >
@@ -98,9 +102,7 @@ function UploadParseCsv(props) {
       </div>
         
         
-        <div style={{ marginTop: "3rem" }}>
-                {error ? error : success}
-            </div>
+        
      </div> 
 )
 }
