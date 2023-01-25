@@ -12,3 +12,11 @@ The application allows user to upload the price Feed from retail retail stores v
 
 - FE is developed using React Js.
 - FE code is available in React-FE folder.
+
+# Design-Docs
+
+- Folder has reference to details for which the application is designed.
+- Docs has information how we can design the Application Infrastructure for the above case.
+- Helps us identify the various component of the entier system.
+- Helps us identify the assumption behind the design.
+- Gives the architecture diagram of the application for a reatil store with 3000 stores worldwide.
