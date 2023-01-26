@@ -19,5 +19,5 @@ The application allows user to upload the price Feed from retail retail stores v
 - Docs has information how we can design the Application Infrastructure for the above case.
 - Helps us identify the various component of the entier system.
 - Helps us identify the assumption behind the design.
-- Gives the architecture diagram of the application for a reatil store with 3000 stores worldwide.
+- Gives the architecture diagram of the application for a retail store with 3000 stores worldwide.
 - File with Samplecsv is the csv template used in the Product Price feed upload functionality.
